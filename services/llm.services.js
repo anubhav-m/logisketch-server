@@ -103,5 +103,17 @@ export const callLLM = async (prompt, model, engine)=>{
         throw error;
     }
 
-    return await response.json();
+    const data = await response.json();
+
+    const code = data?.choices?.[0]?.message?.content;
+
+    if(code=== undefined || code === null || !code) {
+        const error = new Error("No response from LLM");
+        error.statusCode = 404;
+        throw error;
+    }
+
+    console.log(code);
+
+    return code;
 }
