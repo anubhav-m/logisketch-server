@@ -20,7 +20,7 @@ for (let i = 1; i <= 4; i++) {
 
 export const ENGINES = [];
 
-for (let i = 1; i <= 13; i++) {
+for (let i = 1; i <= 15; i++) {
     ENGINES.push({
         name: process.env[`ENGINE_${i}`], 
         prompt: fs.readFileSync(`./prompts/${process.env[`ENGINE_${i}`]}.prompts.txt`, "utf-8")
