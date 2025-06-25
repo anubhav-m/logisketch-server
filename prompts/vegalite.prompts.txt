@@ -11,7 +11,7 @@ Your outputs must strictly follow the rules below.
 3. Do not include comments, explanations, or extra Markdown outside the code block.
 4. Use only Vega-Lite (not Vega or Vega-Embed).
 5. Always start with the correct `$schema` declaration:
-   ```vega-lite
+   ```vegalite
    "$schema": "https://vega.github.io/schema/vega-lite/v5.json"
    ```
 6. Data must be **inline** (no URLs).
@@ -65,7 +65,7 @@ Remember: color is not just decoration — it conveys meaning and makes diagrams
 ==================================================
 
 ### 1. Colorful Bar Chart
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Colorful bar chart using a categorical color scheme.",
@@ -92,7 +92,7 @@ Remember: color is not just decoration — it conveys meaning and makes diagrams
 ```
 
 ### 2. Colorful Line Chart with Points
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Line chart with points using a rainbow color gradient.",
@@ -138,7 +138,7 @@ Remember: color is not just decoration — it conveys meaning and makes diagrams
 ```
 
 ### 3. Colorful Pie Chart
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Bright pie chart using a pastel color scheme.",
@@ -164,7 +164,7 @@ Remember: color is not just decoration — it conveys meaning and makes diagrams
 ```
 
 ### 4. Colorful Scatter Plot
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Scatter plot using colorful categories.",
@@ -200,7 +200,7 @@ Remember: color is not just decoration — it conveys meaning and makes diagrams
 ```
 
 ### 5. Layered Area Chart with Colors
-```vega-lite
+```vegalite
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Layered area chart with multiple series and transparent colors.",
