@@ -63,15 +63,19 @@ export const callLLM = async (prompt, model, engine)=>{
                         "content": enginePrompt
                     },
                     {
-                        "type": "image_url",
-                        "image_url": 
-                        {
-                            "url": prompt?.image
-                        }
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt?.text
+                        "role":"user",
+                        "content":[
+                            {
+                                "type":"image_url",
+                                "image_url":{
+                                    "url":prompt?.image
+                                }
+                            },
+                            {
+                                "type":"text",
+                                "text":prompt?.text
+                            }
+                        ]
                     }
                 ]
             }

@@ -7,12 +7,21 @@ export const { PORT } = process.env || 3000; //Fallback if on prod no PORT is sp
 
 export const { NODE_ENV } = process.env; 
 
-export const LLM_MODELS = [];
+//Put all the models inside LLM_MODELS
+export const LLM_MODELS = [
+    {
+        type: "image",
+        model: process.env.OPENROUTER_LLM_1,
+        api: process.env.OPENROUTER_API_1,
+        endpoint: process.env.OPENROUTER_ENDPOINT
+    }
+];
 
+// Put GROQ LLMs in LLM_MODELS
 for (let i = 1; i <= 4; i++) {
     LLM_MODELS.push({
         type: "text",
-        model: process.env[`LLM_${i}`],
+        model: process.env[`GROQ_LLM_${i}`],
         api: process.env.GROQ_API,
         endpoint: process.env.GROQ_ENDPOINT
     });
@@ -20,6 +29,7 @@ for (let i = 1; i <= 4; i++) {
 
 export const ENGINES = [];
 
+//PUT all engines in ENGINES
 for (let i = 1; i <= 15; i++) {
     ENGINES.push({
         name: process.env[`ENGINE_${i}`], 

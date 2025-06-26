@@ -8,9 +8,9 @@ export const generateImage = async (req, res, next)=>{
         const code = await callLLM(req.body.prompt, req.body.model, req.body.engine);
 
         const sanitisedCode = extractCode(code);
-        console.log(sanitisedCode[0]);
+        console.log(sanitisedCode);
 
-        const svg = await callKroki(sanitisedCode[0], req.body.engine);
+        const svg = await callKroki(sanitisedCode, req.body.engine);
         console.log(svg);
         
         res.status(200).json({success: true, code, svg});
