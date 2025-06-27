@@ -269,7 +269,7 @@ ENGINE_15=wavedrom
 - **ARCJET API Key** → [https://arcjet.com](https://arcjet.com)
   
   > Sign up at [https://arcjet.com](https://arcjet.com) and create a new project.
-  > Once created, your API key will be displayed at the top under your project name as API_KEYS = **************
+  > Once created, your API key will be displayed at the top under your project name as ARCJET_KEY = **************
 
 - **GROQ API Key** → [https://console.groq.com/keys](https://console.groq.com/keys)
 
@@ -298,8 +298,34 @@ npm install
 ### 3. Create and configure your .env file
 Refer to the [Environment Configuration](#environment-configuration) section for setup
 
-# 4. Run the development server
+### 4. Run the development server
+```bash
 npm run dev
 ```
 
 ---
+<br>
+
+
+## Deployment Guide
+
+When deploying on **Render**, **Railway**, **Fly.io**, or similar platforms, make sure to configure the following:
+
+### Build Command:  
+```bash
+npm install
+```
+
+### **Start Command:**  
+```bash
+npm start
+```
+
+### **Environment Variable:**  
+```env
+NODE_ENV=production
+```
+
+### **Secrets:**  
+Upload your `env.production.local` file.  
+>(_Refer to the [Environment Configuration](#environment-configuration) section for the full list of variables.)_
