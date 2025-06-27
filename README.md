@@ -266,9 +266,9 @@ ENGINE_15=wavedrom
 
 ### Get Your API Keys
 
-- **ARCJET API Key** → [https://arcjet.com](Arcjet Dashboard)
+- **ARCJET API Key** → [https://arcjet.com](https://arcjet.com)
   
-  > Sign up at [https://arcjet.com](Arcjet Dashboard) and create a new project.
+  > Sign up at [https://arcjet.com](https://arcjet.com) and create a new project.
   > Once created, your API key will be displayed at the top under your project name as API_KEYS = *****
 
 - **GROQ API Key** → [https://console.groq.com/keys](https://console.groq.com/keys)
