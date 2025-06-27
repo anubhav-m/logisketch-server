@@ -57,11 +57,30 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 - Image + text-based diagram generation
 - Multi-model LLM support
 - Custom prompt engineering support
-- Rate limiting via Arcjet
+- Rate limiting and bot protection via Arcjet
 - Supports 13+ diagram engines
 
 ---
 <br>
+
+## API Routes Description
+
+### 1. `POST /api/generate-image`
+
+Generates a diagram image from a natural language prompt, with optional image input (used for models that support images).  
+This route performs the full LLM-to-Kroki pipeline and returns both the generated code and the rendered diagram.
+
+---
+
+### 2. `POST /api/render-code`
+
+Renders a given diagram code (in a supported diagram syntax) directly into an image using the selected Kroki engine.  
+This route bypasses the LLM and is ideal when you already have the code and just want to convert it to an image.
+
+
+---
+<br>
+
 
 ## API Usage
 
@@ -78,6 +97,27 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 }
 ```
 
+#### ✅ Success Response
+
+```json
+{
+  "success": "true",
+  "code": "...",
+  "svg": "..."
+}
+```
+
+#### ❌ Error Response
+
+```json
+{
+  "success": "false",
+  "error": "..."
+}
+```
+
+---
+
 ### For Text + Image Models
 
 > POST /api/generate-image
@@ -92,7 +132,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 }
 ```
 
-### ✅ Success Response
+#### ✅ Success Response
 
 ```json
 {
@@ -102,7 +142,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 }
 ```
 
-### ❌ Error Response
+#### ❌ Error Response
 
 ```json
 {
@@ -110,3 +150,46 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
   "error": "..."
 }
 ```
+---
+
+### For Rendering Code
+
+> POST /api/render-code
+```json
+{
+  "code":"..."
+  "engine": "plantuml"
+}
+```
+
+#### ✅ Success Response
+
+```json
+{
+  "success": "true",
+  "svg": "..."
+}
+```
+
+#### ❌ Error Response
+
+```json
+{
+  "success": "false",
+  "error": "..."
+}
+```
+
+---
+<br>
+
+## Accepted Parameters
+
+| Parameter | Type           | Allowed Values                                                                                      | Description                             |
+|-----------|----------------|------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `model`   | string (LLM)   | `meta-llama/llama-4-scout-17b-16e-instruct`<br>`llama-3.3-70b-versatile`<br>`llama-3.1-8b-instant`<br>`meta-llama/llama-4-maverick-17b-128e-instruct` | Text-based LLMs                         |
+|           |                | `mistralai/mistral-small-3.2-24b-instruct-2506:free`                                                 | Text + Image LLM                        |
+| `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom` | Rendering engines supported by Kroki   |
+
+---
+<br>
