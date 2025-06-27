@@ -1,4 +1,20 @@
+import { ENGINES } from "../config/env.js";
+
 export const callKroki = async (code, engine) => {
+
+    let isEngineValid = false;
+
+    for (let e of ENGINES){
+        if (e.name === engine){
+            isEngineValid = true;
+            break;      
+        }
+    }
+
+    if (!isEngineValid){
+        throw new Error(`Engine ${engine} not found in ENGINES`);
+    }
+
     const response = await fetch("https://kroki.io/" , {
         method: "POST",
         headers: {

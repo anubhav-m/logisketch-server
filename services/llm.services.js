@@ -117,7 +117,7 @@ export const callLLM = async (prompt, model, engine)=>{
         throw error;
     }
 
-    console.log(code);
+    // console.log(code);
 
     return code;
 }

@@ -1,7 +1,6 @@
 # Logisketch – Smart Diagram Generator from Natural Language & Images
 
 <br>
---
 
 ## About
 
@@ -52,7 +51,6 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 ---
 <br>
 
-
 ## Key Features
 
 - Natural language to diagram via Kroki
@@ -63,3 +61,52 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 - Supports 13+ diagram engines
 
 ---
+<br>
+
+## API Usage
+
+### For Text-based Models
+
+> POST /api/generate-image
+```json
+{
+  "prompt": {
+    "text": "Create a CI/CD pipeline diagram with key stages and tool relationships."
+  },
+  "model": "llama-3.3-70b-versatile",
+  "engine": "plantuml"
+}
+```
+
+### For Text + Image Models
+
+> POST /api/generate-image
+```json
+{
+  "prompt": {
+    "text": "Create an ER diagram from following image",
+    "image": "https://dataedo.com/asset/img/blog/erd_with_pen.png"
+  },
+  "model": "llama-3.3-70b-versatile",
+  "engine": "erd"
+}
+```
+
+### ✅ Success Response
+
+```json
+{
+  "success": "true",
+  "code": "...",
+  "svg": "..."
+}
+```
+
+### ❌ Error Response
+
+```json
+{
+  "success": "false",
+  "error": "..."
+}
+```
