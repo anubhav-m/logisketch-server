@@ -1,6 +1,7 @@
 # Logisketch – Smart Diagram Generator from Natural Language & Images
 
 <br>
+--
 
 ## About
 
@@ -8,7 +9,9 @@ Generate system architecture, ER, flowchart, network packet, circuit logic, 3D, 
 A backend-powered diagram assistant for developers, educators, and system designers.  
 Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, D2, Vega-Lite, Tikz, and many more.
 
+---
 <br>
+
 
 ## Supported Models
 
@@ -23,6 +26,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 
 - `mistralai/mistral-small-3.2-24b-instruct-2506:free`
 
+---
 <br>
 
 ## Supported Diagram Engines (via Kroki)
@@ -45,7 +49,9 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 | Vega-Lite   | Bar, line, scatter charts (data visualization)    |
 | Wavedrom    | Digital timing diagrams                           |
 
+---
 <br>
+
 
 ## Key Features
 
@@ -55,3 +61,5 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 - Custom prompt engineering support
 - Rate limiting via Arcjet
 - Supports 13+ diagram engines
+
+---
