@@ -192,7 +192,7 @@ This route bypasses the LLM and is ideal when you already have the code and just
 
 | Parameter | Type                    | Allowed Values                                                                                                                                                                                                                                             | Description                          |
 | --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLms<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | LLMs used for generating diagrams    |
+| `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLMs<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | LLMs used for generating diagrams    |
 | `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom`                                                                                        | Rendering engines supported by Kroki |
 
 ---
@@ -206,7 +206,7 @@ Create a file named either:
 - `.env.development.local` – for development
 - `.env.production.local` – for production
 
-> ⚠️ Other filenames **will not work** without changes to the environment loader config.
+> _⚠️ Other filenames **will not work** without changes to the environment loader config._
 
 Place it in the root of your project directory.
 
@@ -242,7 +242,7 @@ OPENROUTER_ENDPOINT=https://openrouter.ai/api/v1/chat/completions
 
   # OPENROUTER MODELS
   OPENROUTER_LLM_1=mistralai/mistral-small-3.2-24b-instruct-2506:free
-  OPENROUTER_LLM_1=your_mistralai_api_key_here
+  OPENROUTER_API_1=your_mistralai_api_key_here
 
 # RENDER ENGINES
 ENGINE_1=graphviz
@@ -268,8 +268,8 @@ ENGINE_15=wavedrom
 
 - **ARCJET API Key** → [https://arcjet.com](https://arcjet.com)
   
-  > Sign up at [https://arcjet.com](https://arcjet.com) and create a new project.
-  > Once created, your API key will be displayed at the top under your project name as ARCJET_KEY = **************
+  > _Sign up at [https://arcjet.com](https://arcjet.com) and create a new project._
+  > _Once created, your API key will be displayed at the top under your project name as ARCJET_KEY = **************_
 
 - **GROQ API Key** → [https://console.groq.com/keys](https://console.groq.com/keys)
 
@@ -296,7 +296,7 @@ npm install
 ```
 
 ### 3. Create and configure your .env file
-Refer to the [Environment Configuration](#environment-configuration) section for setup
+>_Refer to the [Environment Configuration](#environment-configuration) section for setup_
 
 ### 4. Run the development server
 ```bash
@@ -328,4 +328,6 @@ NODE_ENV=production
 
 ### **Secrets:**  
 Upload your `env.production.local` file.  
->(_Refer to the [Environment Configuration](#environment-configuration) section for the full list of variables.)_
+>_Refer to the [Environment Configuration](#environment-configuration) section for the full list of variables._
+
+---
