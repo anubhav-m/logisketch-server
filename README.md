@@ -269,7 +269,7 @@ ENGINE_15=wavedrom
 - **ARCJET API Key** → [https://arcjet.com](https://arcjet.com)
   
   > Sign up at [https://arcjet.com](https://arcjet.com) and create a new project.
-  > Once created, your API key will be displayed at the top under your project name as API_KEYS = *****
+  > Once created, your API key will be displayed at the top under your project name as API_KEYS = **************
 
 - **GROQ API Key** → [https://console.groq.com/keys](https://console.groq.com/keys)
 
@@ -277,3 +277,29 @@ ENGINE_15=wavedrom
 
 ---
 <br>
+
+## How to Run Locally
+
+ 
+### 1. Clone the repo and cd into it
+
+```bash
+git clone git@github.com:anubhav-m/logisketch-server.git
+cd logisketch-server
+```
+
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create and configure your .env file
+Refer to the [Environment Configuration](#environment-configuration) section for setup
+
+# 4. Run the development server
+npm run dev
+```
+
+---
