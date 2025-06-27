@@ -1,8 +1,6 @@
 # Logisketch – Smart Diagram Generator from Natural Language & Images
 
 
-# Section 1 : Project Overview
-
 ## About
 
 Generate system architecture, ER, flowchart, network packet, circuit logic, 3D, math, and sequence diagrams from natural language prompts.  
