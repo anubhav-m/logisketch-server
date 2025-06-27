@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import { PORT, NODE_ENV } from './config/env.js';
 import { generateImageRouter } from './routes/generateImage.routes.js';
 import { renderCodeRouter } from './routes/renderCode.routes.js';
@@ -6,6 +7,13 @@ import { errorMiddleware } from './middlewares/error.middlewares.js';
 import arcjetMiddleware from './middlewares/arcjet.middlewares.js';
 
 const app = express();
+
+//Temporary fix
+app.use(cors({
+  origin: '*', 
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded bodies
