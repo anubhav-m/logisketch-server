@@ -73,8 +73,6 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 Generates a diagram image from a natural language prompt, with optional image input (used for models that support images).  
 This route performs the full LLM-to-Kroki pipeline and returns both the generated code and the rendered diagram.
 
----
-
 ### 2. `POST /api/render-code`
 
 Renders a given diagram code (in a supported diagram syntax) directly into an image using the selected Kroki engine.  
@@ -194,6 +192,88 @@ This route bypasses the LLM and is ideal when you already have the code and just
 
 | Parameter | Type                    | Allowed Values                                                                                                                                                                                                                                             | Description                          |
 | --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLms<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | Text-based LLMs                      |
+| `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLms<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | LLMs used for generating diagrams    |
 | `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom`                                                                                        | Rendering engines supported by Kroki |
 
+---
+
+<br>
+
+## Environment Configuration
+
+Create a file named either:
+
+- `.env.development.local` – for development
+- `.env.production.local` – for production
+
+> ⚠️ Other filenames **will not work** without changes to the environment loader config.
+
+Place it in the root of your project directory.
+
+---
+
+### Sample `.env.*.local` File
+
+```env
+# ENVIRONMENT
+NODE_ENV=development
+
+# PORT
+PORT=3000
+
+# ARCJET
+ARCJET_KEY=your_arcjet_key_here
+
+# LLM PROVIDERS
+
+# 1. GROQ
+GROQ_API=your_groq_api_key_here
+GROQ_ENDPOINT=https://api.groq.com/openai/v1/chat/completions
+
+  # GROQ MODELS
+  GROQ_LLM_1=meta-llama/llama-4-scout-17b-16e-instruct
+  GROQ_LLM_2=llama-3.3-70b-versatile
+  GROQ_LLM_3=llama-3.1-8b-instant
+  GROQ_LLM_4=meta-llama/llama-4-maverick-17b-128e-instruct
+
+# 2. OPENROUTER
+
+OPENROUTER_ENDPOINT=https://openrouter.ai/api/v1/chat/completions
+
+  # OPENROUTER MODELS
+  OPENROUTER_LLM_1=mistralai/mistral-small-3.2-24b-instruct-2506:free
+  OPENROUTER_LLM_1=your_mistralai_api_key_here
+
+# RENDER ENGINES
+ENGINE_1=graphviz
+ENGINE_2=blockdiag
+ENGINE_3=seqdiag
+ENGINE_4=packetdiag
+ENGINE_5=c4plantuml
+ENGINE_6=d2
+ENGINE_7=erd
+ENGINE_8=mermaid
+ENGINE_9=nomnoml
+ENGINE_10=plantuml
+ENGINE_11=structurizr
+ENGINE_12=symbolator
+ENGINE_13=tikz
+ENGINE_14=vegalite
+ENGINE_15=wavedrom
+```
+
+---
+
+### Get Your API Keys
+
+- **ARCJET API Key** → [https://arcjet.com](Arcjet Dashboard)
+  
+  > Sign up at [https://arcjet.com](Arcjet Dashboard) and create a new project.
+  > Once created, your API key will be displayed at the top under your project name as API_KEYS = *****
+
+- **GROQ API Key** → [https://console.groq.com/keys](https://console.groq.com/keys)
+
+- **Mistral API Key** → [https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct:free/api](https://openrouter.ai/mistralai/mistral-small-3.2-24b-instruct:free/api)
+
+---
+<br>
