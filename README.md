@@ -9,8 +9,8 @@ A backend-powered diagram assistant for developers, educators, and system design
 Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, D2, Vega-Lite, Tikz, and many more.
 
 ---
-<br>
 
+<br>
 
 ## Supported Models
 
@@ -26,6 +26,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 - `mistralai/mistral-small-3.2-24b-instruct-2506:free`
 
 ---
+
 <br>
 
 ## Supported Diagram Engines (via Kroki)
@@ -49,6 +50,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 | Wavedrom    | Digital timing diagrams                           |
 
 ---
+
 <br>
 
 ## Key Features
@@ -61,6 +63,7 @@ Supports **13+ diagram engines** like PlantUML, Mermaid, Graphviz, Structurizr, 
 - Supports 13+ diagram engines
 
 ---
+
 <br>
 
 ## API Routes Description
@@ -77,16 +80,16 @@ This route performs the full LLM-to-Kroki pipeline and returns both the generate
 Renders a given diagram code (in a supported diagram syntax) directly into an image using the selected Kroki engine.  
 This route bypasses the LLM and is ideal when you already have the code and just want to convert it to an image.
 
-
 ---
-<br>
 
+<br>
 
 ## API Usage
 
 ### For Text-based Models
 
 > POST /api/generate-image
+
 ```json
 {
   "prompt": {
@@ -121,6 +124,7 @@ This route bypasses the LLM and is ideal when you already have the code and just
 ### For Text + Image Models
 
 > POST /api/generate-image
+
 ```json
 {
   "prompt": {
@@ -150,11 +154,13 @@ This route bypasses the LLM and is ideal when you already have the code and just
   "error": "..."
 }
 ```
+
 ---
 
 ### For Rendering Code
 
 > POST /api/render-code
+
 ```json
 {
   "code":"..."
@@ -181,15 +187,13 @@ This route bypasses the LLM and is ideal when you already have the code and just
 ```
 
 ---
+
 <br>
 
 ## Accepted Parameters
 
-| Parameter | Type           | Allowed Values                                                                                      | Description                             |
-|-----------|----------------|------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `model`   | string (LLM)   | `meta-llama/llama-4-scout-17b-16e-instruct`<br>`llama-3.3-70b-versatile`<br>`llama-3.1-8b-instant`<br>`meta-llama/llama-4-maverick-17b-128e-instruct` | Text-based LLMs                         |
-|           |                | `mistralai/mistral-small-3.2-24b-instruct-2506:free`                                                 | Text + Image LLM                        |
-| `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom` | Rendering engines supported by Kroki   |
+| Parameter | Type                    | Allowed Values                                                                                                                                                                                                                                             | Description                          |
+| --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLms<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | Text-based LLMs                      |
+| `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom`                                                                                        | Rendering engines supported by Kroki |
 
----
-<br>
