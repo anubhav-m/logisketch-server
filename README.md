@@ -316,21 +316,22 @@ When deploying on **Render**, **Railway**, **Fly.io**, or similar platforms, mak
 npm install
 ```
 
-### **Start Command:**  
+### Start Command:  
 ```bash
 npm start
 ```
 
-### **Environment Variable:**  
+### Environment Variable:
 ```env
 NODE_ENV=production
 ```
 
-### **Secrets:**  
+### Secrets:  
 Upload your `env.production.local` file.  
 >_Refer to the [Environment Configuration](#environment-configuration) section for the full list of variables._
 
 ---
 <br>
 
+## License
 This project is licensed under the terms of the [MIT License](./LICENSE).
