@@ -331,3 +331,6 @@ Upload your `env.production.local` file.
 >_Refer to the [Environment Configuration](#environment-configuration) section for the full list of variables._
 
 ---
+<br>
+
+This project is licensed under the terms of the [MIT License](./LICENSE).
