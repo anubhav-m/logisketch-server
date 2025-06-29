@@ -5,7 +5,7 @@ config({path:`.env.${process.env.NODE_ENV || 'development'}.local`});
 
 export const { PORT } = process.env || 3000; //Fallback if on prod no PORT is specified
 
-export const { NODE_ENV, ARCJET_KEY} = process.env; 
+export const { NODE_ENV, JWT_SECRET, JWT_EXPIRY, DB_URI, ARCJET_KEY } = process.env; 
 
 //Put all the models inside LLM_MODELS
 export const LLM_MODELS = [

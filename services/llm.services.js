@@ -1,6 +1,6 @@
 import { LLM_MODELS, ENGINES } from "../config/env.js";
 
-export const callLLM = async (prompt, model, engine)=>{
+export const callLLM = async (prompt, model, engine) => {
 
     let enginePrompt;
     let API_KEY;
@@ -23,7 +23,7 @@ export const callLLM = async (prompt, model, engine)=>{
 
         if (llm.type === "text" && llm.model === model) {
             API_KEY = llm.api;
-            endpoint = llm.endpoint;   
+            endpoint = llm.endpoint;
 
             messages = [
                 {
@@ -45,7 +45,7 @@ export const callLLM = async (prompt, model, engine)=>{
 
             if (prompt.image === undefined || prompt.image === null || !prompt.image) {
                 messages = [
-                    {   
+                    {
                         "role": "system",
                         "content": enginePrompt
                     },
@@ -56,24 +56,24 @@ export const callLLM = async (prompt, model, engine)=>{
                 ]
             }
 
-            else{
+            else {
                 messages = [
-                    {   
+                    {
                         "role": "system",
                         "content": enginePrompt
                     },
                     {
-                        "role":"user",
-                        "content":[
+                        "role": "user",
+                        "content": [
                             {
-                                "type":"image_url",
-                                "image_url":{
-                                    "url":prompt?.image
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": prompt?.image
                                 }
                             },
                             {
-                                "type":"text",
-                                "text":prompt?.text
+                                "type": "text",
+                                "text": prompt?.text
                             }
                         ]
                     }
@@ -111,7 +111,7 @@ export const callLLM = async (prompt, model, engine)=>{
 
     const code = data?.choices?.[0]?.message?.content;
 
-    if(code=== undefined || code === null || !code) {
+    if (code === undefined || code === null || !code) {
         const error = new Error("No response from LLM");
         error.statusCode = 404;
         throw error;
