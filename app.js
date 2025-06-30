@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { PORT, NODE_ENV } from './config/env.js';
 import { connectToDB } from './database/mongodb.js';
-// import { authRouter } from './routes/auth.routes.js';
+import { authRouter } from './routes/auth.routes.js';
 import { generateImageRouter } from './routes/generateImage.routes.js';
 import { renderCodeRouter } from './routes/renderCode.routes.js';
 import { errorMiddleware } from './middlewares/error.middlewares.js';
@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-enc
 
 app.use(arcjetMiddleware);
 
-// app.use('/api/auth', authRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/generate-image', generateImageRouter);
 app.use('/api/render-code', renderCodeRouter);
 
