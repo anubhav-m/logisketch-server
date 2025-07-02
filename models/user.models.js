@@ -18,22 +18,16 @@ const userSchema = new mongoose.Schema({
 
     role : {
         type: String,
-        enum: ['admin','member']
+        enum: ['admin','member'],
+        default: 'member'
     },
 
     apiKey : {
         type: String,
         unique: true,
-        sparse: true
+        sparse: true,
+        default: null
     }    
 }, {timestamps:true});
-
-//Middleware to set role by default
-userSchema.pre('save', function(next){
-    if (!this.role){
-        this.role = 'member';
-    }
-    next();
-});
 
 export const User = mongoose.model('User', userSchema);

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { JWT_SECRET } from "../config/env.js";
-import User from "..models/user.models.js";
+import { User } from "../models/user.models.js";
 
 export const authorize = async (req, res, next) => {
     try{
@@ -24,7 +24,7 @@ export const authorize = async (req, res, next) => {
             throw error;
         }
 
-        const user = User.findbyId(decoded.userId);
+        const user = await User.findById(decoded.userId);
 
         if (!user){
             const error = new Error('User not found - Unauthorized');
