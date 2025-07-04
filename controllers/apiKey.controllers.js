@@ -20,12 +20,70 @@ export const createApiKey = async (req, res, next) => {
 
         const newKey = generateApiKey();
         user.apiKey = newKey;
-        await user.save();
+        const savedUser = await user.save();
 
         res.status(201).json({
             success: true,
             message: "API Key generated successfully",
-            apiKey: newKey 
+            apiKey: savedUser.apiKey 
+        });
+    }
+
+    catch(err){
+        next(err);
+    }
+}
+
+export const getApiKey = async(req, res, next) => {
+    try{
+        const user = await User.findById(req.user._id);
+
+        if (!user){
+            const error = new Error('No user found - Unauthorized');
+            error.statusCode = 401;
+            throw error;
+        }
+
+        if (!user.apiKey){
+            const error = new Error('No API key found');
+            error.stausCode = 404;
+            throw error;
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "API Key found",
+            apiKey: user.apiKey
+        });
+    }
+
+    catch(err){
+        next(err);
+    }
+}
+
+export const deleteApiKey = async(req, res, next) => {
+    try{
+        const user = await User.findById(req.user._id);
+
+        if (!user){
+            const error = new Error('No user found - Unauthorized');
+            error.statusCode = 401;
+            throw error;
+        }
+        
+        if (!user.apiKey){
+            const error = new Error('No API key found');
+            error.stausCode = 404;
+            throw error;
+        }
+
+        user.apiKey = null;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            message: 'API Key deleted'
         });
     }
 

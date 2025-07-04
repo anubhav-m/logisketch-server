@@ -1,6 +1,6 @@
 import { aj } from '../config/arcjet.js';
 
-const arcjetMiddleware = async (req, res, next) => {
+export const arcjetMiddleware = async (req, res, next) => {
     try{
         const decision = await aj.protect(req, { requested: 1});
 
@@ -28,5 +28,3 @@ const arcjetMiddleware = async (req, res, next) => {
         next(error);
     }
 }
-
-export default arcjetMiddleware;
