@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 import { User } from '../models/user.models.js';
+import { Interaction } from '../models/interaction.models.js'
 import { JWT_SECRET, JWT_EXPIRY } from '../config/env.js';
 
 export const signUp = async (req, res, next) => {
@@ -73,6 +74,31 @@ export const signIn = async (req, res, next) => {
             message: 'User signed in successfully',
             token
         });
+    }
+
+    catch (err) {
+        next(err);
+    }
+}
+
+export const deleteAccount = async (req, res, next) => {
+    try {
+        const user = await User.findById(req.user._id);
+
+        if (!user) {
+            const error = new Error('User not found');
+            error.statusCode = 404;
+            throw error;
+        }
+
+        await Interaction.deleteMany({ user: user._id });
+
+        await user.deleteOne();
+
+        res.status(200).json({
+            success: true,
+            message: 'Account and associated interactions deleted successfully'
+        })
     }
 
     catch (err) {

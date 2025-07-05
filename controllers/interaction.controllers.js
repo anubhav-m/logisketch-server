@@ -25,7 +25,7 @@ export const getAllInteractions = async (req, res, next) => {
     try {
         const interactions = await Interaction.find({ user: req.user._id });
 
-        if (!interactions) {
+        if (interactions.length === 0) {
             const error = new Error('No history of interactions found');
             error.statusCode = 404;
             throw error;

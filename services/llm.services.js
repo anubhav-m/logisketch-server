@@ -113,7 +113,7 @@ export const callLLM = async (prompt, model, engine) => {
 
     if (code === undefined || code === null || !code) {
         const error = new Error("No response from LLM");
-        error.statusCode = 404;
+        error.statusCode = 502; //Bad gateway
         throw error;
     }
 

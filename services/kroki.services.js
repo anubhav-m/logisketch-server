@@ -37,5 +37,12 @@ export const callKroki = async (code, engine) => {
     }
 
     const svg = await response.text();
+
+    if (!svg){
+        const error = new Error('Kroki returned empty svg code');
+        error.statusCode = 502; //Bad Gateway
+        throw error;
+    }
+
     return svg;
 }
