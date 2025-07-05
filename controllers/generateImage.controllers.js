@@ -13,7 +13,7 @@ export const generateImage = async (req, res, next)=>{
         const svg = await callKroki(sanitisedCode, req.body.engine);
         // console.log(svg);
         
-        res.status(200).json({success: true, code, svg});
+        res.status(200).json({success: true, code:sanitisedCode, svg});
     }
 
     catch(err){
