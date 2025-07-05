@@ -193,7 +193,7 @@ This route bypasses the LLM and is ideal when you already have the code and just
 | Parameter | Type                    | Allowed Values                                                                                                                                                                                                                                             | Description                          |
 | --------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
 | `model`   | string (LLM)            | Text-based LLMs<br>`meta-llama/llama-4-scout-17b-16e-instruct`,<br>`llama-3.3-70b-versatile`,<br>`llama-3.1-8b-instant`,<br>`meta-llama/llama-4-maverick-17b-128e-instruct`<br><br>Text+Image LLMs<br>`mistralai/mistral-small-3.2-24b-instruct-2506:free` | LLMs used for generating diagrams    |
-| `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4`, `d2`, `erd`, `nomnoml`, `tikz`, `vega-lite`, `symbolator`, `wavedrom`                                                                                        | Rendering engines supported by Kroki |
+| `engine`  | string (Diagram Engine) | `plantuml`, `mermaid`, `graphviz`, `structurizr`, `blockdiag`, `seqdiag`, `packetdiag`, `c4plantuml`, `d2`, `erd`, `nomnoml`, `tikz`, `vegalite`, `symbolator`, `wavedrom`                                                                                        | Rendering engines supported by Kroki |
 
 ---
 
