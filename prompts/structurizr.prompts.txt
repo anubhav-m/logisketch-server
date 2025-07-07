@@ -245,3 +245,49 @@ workspace {
   }
 }
 ```
+
+Example 3:
+
+```structurizr
+workspace {
+
+    model {
+        user = person "Customer" {
+            description "A customer of the bank."
+        }
+
+        softwareSystem = softwareSystem "Internet Banking System" {
+            description "Allows customers to view information about their bank accounts and make payments."
+
+            webApp = container "Web Application" {
+                description "Allows customers to access their bank accounts via the web."
+                technology "Java and Spring MVC"
+            }
+
+            database = container "Database" {
+                description "Stores user account information."
+                technology "Oracle Database"
+            }
+
+            user -> webApp "Uses"
+            webApp -> database "Reads from and writes to"
+        }
+    }
+
+    views {
+        systemContext softwareSystem {
+            include *
+            autolayout lr
+            title "System Context: Internet Banking System"
+        }
+
+        container softwareSystem {
+            include *
+            autolayout lr
+            title "Container Diagram: Internet Banking System"
+        }
+
+        theme default
+    }
+}
+```
