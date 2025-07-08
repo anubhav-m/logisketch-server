@@ -83,3 +83,35 @@ API --> Browser : Sends JSON Response
 
 @enduml
 ```
+
+### Example 2:
+
+```plantuml
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+title Container Diagram for Project Management SaaS App
+
+Person(user, "Team Member", "A user who creates and manages tasks within projects.")
+
+System_Boundary(s1, "Project Management System") {
+  
+  Container(webApp, "Web Application", "React + Node.js", "Allows users to manage projects and tasks.")
+  Container(mobileApp, "Mobile App", "Flutter", "Provides similar functionality as the web app on mobile devices.")
+  Container(api, "Backend API", "Node.js Express", "Handles business logic and communication between frontends and data layer.")
+  Container(db, "Database", "PostgreSQL", "Stores users, projects, tasks, and comments.")
+  Container(cache, "Cache", "Redis", "Speeds up frequent queries and stores active sessions.")
+  Container(fileStore, "File Storage", "Amazon S3", "Stores file attachments for tasks and projects.")
+
+  user -> webApp : Uses
+  user -> mobileApp : Uses
+  webApp -> api : API Calls (JSON/HTTPS)
+  mobileApp -> api : API Calls (JSON/HTTPS)
+  api -> db : Reads/Writes
+  api -> cache : Uses for performance
+  api -> fileStore : Uploads/Downloads attachments
+}
+
+@enduml
+```
