@@ -131,3 +131,49 @@ Backend -> Cache: "Lookup"
 Backend -> Database: "Fetch/Store Data"
 Database -> Cache: "Warm Cache"
 Backend -> Frontend: "Response"
+
+Example 3: 
+
+```d2
+direction: right
+
+Dev: Person {
+  label: "Developer"
+}
+
+Repo: System {
+  label: "GitHub Repository"
+}
+
+CI: System {
+  label: "CI Server (GitHub Actions)"
+}
+
+Tests: Component {
+  label: "Run Tests"
+}
+
+Build: Component {
+  label: "Build Artifacts"
+}
+
+CD: System {
+  label: "CD Server (e.g., ArgoCD)"
+}
+
+Staging: Deployment {
+  label: "Staging Environment"
+}
+
+Production: Deployment {
+  label: "Production Environment"
+}
+
+Dev -> Repo: "Push Code"
+Repo -> CI: "Trigger Workflow"
+CI -> Tests: "Execute Unit Tests"
+Tests -> Build: "If Pass"
+Build -> CD: "Deploy Artifacts"
+CD -> Staging: "Auto Deploy"
+CD -> Production: "Manual Approval"
+```
