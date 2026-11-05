@@ -89,5 +89,31 @@ Branch: `feature/single-llm-rag-eval`
   invalid diagrams); a 4xx from Kroki is a render failure.
 - "Bypass any cache": the app has no response cache; Kroki is called with POST and
   `Cache-Control: no-cache`; every test makes a fresh Gemini call.
+- After the first run, the runner also records `attempts` per prompt (the first run's
+  latency included 503-retry time; see README). The scoring itself did not change.
 - The run is sequential (RAG off fully, then RAG on), as requested. Model sampling uses
   temperature 0.2, so runs are not bit-for-bit reproducible.
+
+## 4. Finish
+
+- Tests (`npm test`, Node built-in runner, 43 tests, all HTTP mocked, no LLM quota):
+  `tests/llm.test.js`, `tests/retrieval.test.js`, `tests/rag-switch.test.js`,
+  `tests/scoring.test.js`, `tests/validation.test.js`.
+- `npm run smoke`: one real request through the HTTP API (Express stack -> RAG -> Gemini ->
+  Kroki). Output saved in `reports/smoke/`.
+- ESLint config used browser globals for a Node project; switched to `globals.node`.
+  Remaining lint errors are in code that already existed (unused `newUser`/`err`, and the
+  4-argument `next` that Express error handlers require), so they were left alone.
+- README rewritten for the single-LLM setup, RAG, evaluation, results and limitations.
+  `docs/DEFENSE.md` added.
+
+### Test-set notes (the test set was not changed)
+- sq-01 requires "authorization code"; in both modes the model wrote "Auth Code". That is
+  arguably correct, so this element is stricter than intended. Kept as-is and counted as a miss.
+
+### Assumption: running the API without MongoDB/Arcjet keys
+- No `DB_URI` or `ARCJET_KEY` was available locally. `/api/generate-image` does not use the
+  database, so the smoke test starts the real Express `app` without connecting to MongoDB.
+  Without a key, Arcjet logs an error and allows the request. `npm start` still requires
+  `DB_URI` (unchanged behaviour). Auth routes were not run live; they were not modified apart
+  from the `statusCode` typo fix.

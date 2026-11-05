@@ -1,0 +1,10 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "testsetHash": "b6660cc8eb3dcb62b13c0ea9005498200142fd59b4b2817b3e89ba13c4f1e375",
+  "startedAt": "2026-11-05T06:49:55.505Z",
+  "git": {
+    "commit": "b55cf7fde3bc49ddc1a4cb586a46435794e47190",
+    "branch": "feature/single-llm-rag-eval",
+    "dirty": false
+  }
+}

@@ -28,7 +28,7 @@ export const tokenize = (text) => {
     const words = (lower.match(/[a-z][a-z0-9_]*/g) || [])
         .map((w) => w.replace(/s$/, '')) // crude singular: "entities"->"entitie", "orders"->"order"
         .filter((w) => w.length > 1 && !STOPWORDS.has(w));
-    const symbols = lower.match(/[-=.<>|{}*+o:@#\[\]()]{2,}|@[a-z]+/g) || [];
+    const symbols = lower.match(/[-=.<>|{}*+o:@#[\]()]{2,}|@[a-z]+/g) || [];
 
     const features = [];
     for (let i = 0; i < words.length; i++) {

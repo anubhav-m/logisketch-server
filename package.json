@@ -9,7 +9,8 @@
     "ingest": "node scripts/ingest.js",
     "validate-docs": "node scripts/validate-docs.js",
     "test": "node --test --test-concurrency=1 \"tests/**/*.test.js\"",
-    "eval": "node scripts/evaluate.js"
+    "eval": "node scripts/evaluate.js",
+    "smoke": "node scripts/smoke-api.js"
   },
   "dependencies": {
     "@arcjet/inspect": "^1.0.0-beta.8",

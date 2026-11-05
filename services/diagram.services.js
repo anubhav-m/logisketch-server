@@ -63,8 +63,9 @@ export const createDiagramService = ({ llm = llmClient, retriever = defaultRetri
             usage: result.usage,
             latencyMs: result.latencyMs + rag.latencyMs,
             llmLatencyMs: result.latencyMs,
+            attempts: result.attempts,
             model: result.model,
-            rag: { ...rag, chunks: rag.chunks.map(({ text: _t, ...meta }) => meta) },
+            rag: { ...rag, chunks: rag.chunks.map((c) => ({ id: c.id, title: c.title, score: c.score })) },
         };
     };
 

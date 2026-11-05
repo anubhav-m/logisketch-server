@@ -200,7 +200,7 @@ const main = async () => {
                 llmOk: true, error: null,
                 renderSuccess: isRenderSuccess(svg), renderError: error,
                 coverage: cov.coverage, matched: cov.matched, missing: cov.missing,
-                latencyMs: out.latencyMs, llmLatencyMs: out.llmLatencyMs, usage: out.usage,
+                latencyMs: out.latencyMs, llmLatencyMs: out.llmLatencyMs, attempts: out.attempts ?? null, usage: out.usage,
                 rag: { used: out.rag.used, chunks: out.rag.chunks.map((c) => c.id), error: out.rag.error },
                 code: out.code,
             });
