@@ -38,3 +38,29 @@ Branch: `feature/single-llm-rag-eval`
 - `apiKey.controllers.js` had `stausCode` typo (404 became 500). Fixed.
 - Unknown engine errors now return 400 instead of 500.
 - `app.js` now exports `app` and only starts listening when run directly (needed for tests).
+
+## 2. RAG over engine syntax
+
+- `data/engine-docs/<engine>.md`: short syntax notes, common mistakes and valid examples for
+  all 15 engines, written for this project (not copied from external docs).
+  `npm run validate-docs` renders every example with Kroki: 24/24 render.
+- `npm run ingest` chunks the docs (one chunk per `##` section, 74 chunks), embeds them
+  locally and writes `data/rag-index.json`. Idempotent: if the docs hash is unchanged the
+  file is not rewritten.
+- Retrieval (`services/rag/retriever.js`) filters to the selected engine first, then ranks
+  by cosine similarity and returns the top `RAG_TOP_K` (default 3, clamped to 1..3) chunks.
+  They are appended to the engine system prompt as a "SYNTAX REFERENCE" section.
+- `RAG_ENABLED` (default `true`). The diagram service also accepts a per-call override
+  (used by the evaluation). If retrieval throws, it logs `rag.retrieval_failed` and
+  generates without RAG.
+
+### Assumptions
+- **"Local embeddings" = hashed TF-IDF vectors** (word unigrams + bigrams + syntax tokens,
+  4096 hashed dimensions, L2-normalised), computed in plain JavaScript. Reasons: zero
+  downloads, zero native dependencies, deterministic, no LLM quota, and the search space per
+  engine is only 3-7 chunks, so a neural embedding model would not change the ranking much.
+  The embedder is one file (`services/rag/embedder.js`) and can be replaced by a neural
+  local model later (e.g. transformers.js) without touching the retriever.
+- **Vector search = brute-force cosine in memory.** No vector database is needed for 74 chunks.
+- The index file is committed so the server works without running ingestion; if it is
+  missing, the retriever builds it in memory and logs a warning.

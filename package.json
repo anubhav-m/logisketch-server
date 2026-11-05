@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "ingest": "node scripts/ingest.js",
+    "validate-docs": "node scripts/validate-docs.js",
+    "test": "node --test --test-concurrency=1 tests/",
+    "eval": "node scripts/evaluate.js"
   },
   "dependencies": {
     "@arcjet/inspect": "^1.0.0-beta.8",

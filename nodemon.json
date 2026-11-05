@@ -1,6 +1,6 @@
 {
   "watch": ["."],
-  "ext": "js,json,txt",
-  "ignore": ["node_modules"],
+  "ext": "js,json,txt,md",
+  "ignore": ["node_modules", "reports", "data/rag-index.json", "tests"],
   "exec": "node app.js"
 }
