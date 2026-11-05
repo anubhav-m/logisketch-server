@@ -64,3 +64,30 @@ Branch: `feature/single-llm-rag-eval`
 - **Vector search = brute-force cosine in memory.** No vector database is needed for 74 chunks.
 - The index file is committed so the server works without running ingestion; if it is
   missing, the retriever builds it in memory and logs a warning.
+
+## 3. Evaluation
+
+- `eval/testset.json`: 30 prompts (6 each: ER, flowchart, sequence, UML, architecture) over
+  10 engines, each with `requiredElements`. Committed before any run and frozen.
+- `npm run eval` runs every prompt with RAG off, then with RAG on, same model, same test
+  set, same code path as the API (`services/diagram.services.js`). Each output is rendered
+  with Kroki and scored by code (`eval/scoring.js`).
+- Results are appended to `reports/evaluation/runs/<model>__<testset-hash>/results.jsonl`
+  after every prompt; rerunning resumes. `--dry-run` prints the call estimate, `--report`
+  rebuilds reports, `--fresh` archives old results.
+- If all keys hit the quota the run stops (exit code 2) without recording that prompt, so a
+  resume retries it. Any other LLM failure is recorded as a failure (render false, coverage 0).
+- Reports: `reports/evaluation/report.json` and `report.md`.
+
+### Assumptions
+- Element coverage is a normalised substring match (lowercase, punctuation removed) of
+  the element names in the generated code. Alternatives are allowed where several
+  names are equally correct (e.g. "auth server" / "authorization server").
+- Latency = LLM HTTP time (all attempts) + retrieval time, without pacing and backoff
+  waits, so it measures the model rather than the rate limiter. Only successful calls count.
+- Kroki calls are retried on network/5xx errors only (Kroki outages are not counted as
+  invalid diagrams); a 4xx from Kroki is a render failure.
+- "Bypass any cache": the app has no response cache; Kroki is called with POST and
+  `Cache-Control: no-cache`; every test makes a fresh Gemini call.
+- The run is sequential (RAG off fully, then RAG on), as requested. Model sampling uses
+  temperature 0.2, so runs are not bit-for-bit reproducible.

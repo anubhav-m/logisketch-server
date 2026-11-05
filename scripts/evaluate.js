@@ -14,6 +14,7 @@ import { createDiagramService } from '../services/diagram.services.js';
 import { callKroki } from '../services/kroki.services.js';
 import { elementCoverage, isRenderSuccess, summarize, groupBy, hashTestset } from '../eval/scoring.js';
 
+process.env.LOG_LEVEL ||= 'warn'; // keep per-call logs out of the progress output
 const args = new Set(process.argv.slice(2));
 const MODES = [
     { name: 'rag_off', ragEnabled: false },
@@ -161,11 +162,12 @@ const main = async () => {
         fs.renameSync(runDir, `${runDir}.archived-${Date.now()}`);
         console.log('Archived previous results.');
     }
-    fs.mkdirSync(runDir, { recursive: true });
-
     let meta;
     if (fs.existsSync(metaPath)) meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
-    else {
+    else if (args.has('--dry-run') || args.has('--report')) {
+        meta = { model, testsetHash, startedAt: null, git: gitInfo() };
+    } else {
+        fs.mkdirSync(runDir, { recursive: true });
         meta = { model, testsetHash, startedAt: new Date().toISOString(), git: gitInfo() };
         fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
     }
