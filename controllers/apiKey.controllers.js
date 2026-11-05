@@ -46,7 +46,7 @@ export const getApiKey = async(req, res, next) => {
 
         if (!user.apiKey){
             const error = new Error('No API key found');
-            error.stausCode = 404;
+            error.statusCode = 404;
             throw error;
         }
 
@@ -74,7 +74,7 @@ export const deleteApiKey = async(req, res, next) => {
         
         if (!user.apiKey){
             const error = new Error('No API key found');
-            error.stausCode = 404;
+            error.statusCode = 404;
             throw error;
         }
 

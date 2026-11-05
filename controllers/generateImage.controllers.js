@@ -1,23 +1,24 @@
-import { callLLM } from "../services/llm.services.js";
+import { diagramService } from "../services/diagram.services.js";
 import { callKroki } from "../services/kroki.services.js";
-import { extractCode } from "../utilities/extractCode.utilites.js";
 
-export const generateImage = async (req, res, next)=>{
+export const generateImage = async (req, res, next) => {
 
-    try{
-        const code = await callLLM(req.body.prompt, req.body.model, req.body.engine);
+    try {
+        const { prompt, engine } = req.body;
 
-        const sanitisedCode = extractCode(code);
-        // console.log(sanitisedCode);
+        const { code } = await diagramService.generateDiagramCode({
+            text: prompt.text,
+            image: prompt.image,
+            engine,
+        });
 
-        const svg = await callKroki(sanitisedCode, req.body.engine);
-        // console.log(svg);
-        
-        res.status(200).json({success: true, code:sanitisedCode, svg});
+        const svg = await callKroki(code, engine);
+
+        res.status(200).json({ success: true, code, svg });
     }
 
-    catch(err){
+    catch (err) {
         next(err);
     }
-    
+
 }
