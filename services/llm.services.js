@@ -25,7 +25,7 @@ const parseRetryDelayMs = (bodyText, headers) => {
 };
 
 // Daily / project quota (not just per-minute) — retrying soon will not help.
-const isHardQuota = (bodyText) => /per ?day|PerDay|daily|billing|exceeded your current quota/i.test(bodyText || '');
+const isHardQuota = (bodyText) => /per[ _]?day|daily|billing/i.test(bodyText || '');
 
 // Never let an API key appear in logs or error messages.
 const redact = (text, keys) => {
@@ -147,7 +147,7 @@ export const createLLMClient = (options = {}) => {
 
                 if (status === 429) {
                     const delay = parseRetryDelayMs(bodyText, response.headers);
-                    if (isHardQuota(bodyText) && !delay) {
+                    if (isHardQuota(bodyText)) {
                         parkedUntil[keyIdx] = now() + 60 * 60 * 1000; // park this key for 1h
                     } else {
                         nextFreeAt[keyIdx] = Math.max(nextFreeAt[keyIdx], now() + (delay ?? 2000 * 2 ** (attempt - 1)));

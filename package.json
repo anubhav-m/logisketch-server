@@ -8,7 +8,7 @@
     "dev": "nodemon app.js",
     "ingest": "node scripts/ingest.js",
     "validate-docs": "node scripts/validate-docs.js",
-    "test": "node --test --test-concurrency=1 tests/",
+    "test": "node --test --test-concurrency=1 \"tests/**/*.test.js\"",
     "eval": "node scripts/evaluate.js"
   },
   "dependencies": {
