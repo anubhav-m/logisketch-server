@@ -1,6 +1,7 @@
 import express from 'express';
+import { pathToFileURL } from 'url';
 import { dynamicCors } from './middlewares/cors.middlewares.js';
-import { PORT, NODE_ENV } from './config/env.js';
+import { PORT, NODE_ENV, LLM_CONFIG, RAG_CONFIG } from './config/env.js';
 import { connectToDB } from './database/mongodb.js';
 import { authRouter } from './routes/auth.routes.js';
 import { generateImageRouter } from './routes/generateImage.routes.js';
@@ -11,11 +12,11 @@ import { interactionRouter } from './routes/interaction.routes.js';
 import { arcjetMiddleware } from './middlewares/arcjet.middlewares.js';
 
 
-const app = express();
+export const app = express();
 
 app.use(dynamicCors);
 
-app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.json({ limit: '8mb' })); // Middleware to parse JSON bodies (8mb allows data-URL images)
 app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded bodies
 
 app.use(arcjetMiddleware);
@@ -26,22 +27,26 @@ app.use('/api/render-code', renderCodeRouter);
 app.use('/api/api-key', apiKeyRouter);
 app.use('/api/interaction', interactionRouter);
 
-app.use(errorMiddleware);
-
 app.get('/', (req, res) => {
     res.send('Welcome to logisketch api')
 });
 
-(async () => {
+app.use(errorMiddleware);
+
+export const startServer = async () => {
     try {
         await connectToDB();
 
         app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT} in ${NODE_ENV} mode`);
+            console.log(`Server running on port ${PORT} in ${NODE_ENV} mode (LLM: ${LLM_CONFIG.provider}/${LLM_CONFIG.model}, keys: ${LLM_CONFIG.apiKeys.length}, RAG: ${RAG_CONFIG.enabled ? 'on' : 'off'})`);
         });
     }
     catch (err) {
         console.error(`Failed to start server: ${err.message}`);
     }
-})();
+};
 
+// Start only when run directly (`node app.js`), not when imported by tests/scripts.
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+    startServer();
+}

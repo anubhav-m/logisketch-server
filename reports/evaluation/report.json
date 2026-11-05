@@ -1,0 +1,2920 @@
+{
+  "generatedAt": "2026-11-05T06:53:48.926Z",
+  "complete": true,
+  "model": "gemini-3.5-flash-lite",
+  "provider": "gemini",
+  "temperature": 0.2,
+  "ragTopK": 3,
+  "testset": {
+    "name": "logisketch-diagram-eval",
+    "version": 1,
+    "tests": 30,
+    "sha256": "b6660cc8eb3dcb62b13c0ea9005498200142fd59b4b2817b3e89ba13c4f1e375"
+  },
+  "git": {
+    "commit": "b55cf7fde3bc49ddc1a4cb586a46435794e47190",
+    "branch": "feature/single-llm-rag-eval",
+    "dirty": false
+  },
+  "startedAt": "2026-11-05T06:49:55.505Z",
+  "reportGit": {
+    "commit": "08f97348b1844007474661b3e1bc5ed7c59d4922",
+    "branch": "feature/single-llm-rag-eval",
+    "dirty": true
+  },
+  "scoring": {
+    "renderSuccess": "Kroki returned 2xx with an <svg> document",
+    "elementCoverage": "share of requiredElements found in the generated code (case/punctuation-insensitive substring match)",
+    "latency": "LLM HTTP time (all attempts, excluding pacing and backoff waits) + retrieval time, successful calls only",
+    "failures": "failed LLM calls count as renderSuccess=false and coverage=0",
+    "cache": "no response cache exists in the app; every test makes a new LLM call and Kroki render"
+  },
+  "comparison": {
+    "renderSuccessRate": {
+      "rag_off": 0.9,
+      "rag_on": 1,
+      "delta": 0.1
+    },
+    "avgElementCoverage": {
+      "rag_off": 0.994,
+      "rag_on": 0.994,
+      "delta": 0
+    },
+    "latencyAvgMs": {
+      "rag_off": 3274,
+      "rag_on": 2053
+    },
+    "latencyP95Ms": {
+      "rag_off": 7871,
+      "rag_on": 3518
+    },
+    "totalTokens": {
+      "rag_off": 39653,
+      "rag_on": 53077
+    },
+    "avgPromptTokensPerCall": {
+      "rag_off": 1077,
+      "rag_on": 1526
+    }
+  },
+  "modes": {
+    "rag_off": {
+      "overall": {
+        "tests": 30,
+        "llmCallFailures": 0,
+        "renderSuccess": 27,
+        "renderSuccessRate": 0.9,
+        "avgElementCoverage": 0.994,
+        "fullCoverageCount": 29,
+        "latencyAvgMs": 3274,
+        "latencyP95Ms": 7871,
+        "tokens": {
+          "prompt": 32305,
+          "output": 7348,
+          "thought": 0,
+          "total": 39653,
+          "avgPromptPerCall": 1077,
+          "avgTotalPerCall": 1322
+        }
+      },
+      "perEngine": {
+        "blockdiag": {
+          "tests": 1,
+          "llmCallFailures": 0,
+          "renderSuccess": 1,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 1,
+          "latencyAvgMs": 1227,
+          "latencyP95Ms": 1227,
+          "tokens": {
+            "prompt": 430,
+            "output": 196,
+            "thought": 0,
+            "total": 626,
+            "avgPromptPerCall": 430,
+            "avgTotalPerCall": 626
+          }
+        },
+        "c4plantuml": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 1830,
+          "latencyP95Ms": 1967,
+          "tokens": {
+            "prompt": 2223,
+            "output": 625,
+            "thought": 0,
+            "total": 2848,
+            "avgPromptPerCall": 1112,
+            "avgTotalPerCall": 1424
+          }
+        },
+        "d2": {
+          "tests": 3,
+          "llmCallFailures": 0,
+          "renderSuccess": 3,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 3,
+          "latencyAvgMs": 3698,
+          "latencyP95Ms": 4827,
+          "tokens": {
+            "prompt": 3846,
+            "output": 1192,
+            "thought": 0,
+            "total": 5038,
+            "avgPromptPerCall": 1282,
+            "avgTotalPerCall": 1679
+          }
+        },
+        "erd": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 2968,
+          "latencyP95Ms": 3871,
+          "tokens": {
+            "prompt": 2212,
+            "output": 217,
+            "thought": 0,
+            "total": 2429,
+            "avgPromptPerCall": 1106,
+            "avgTotalPerCall": 1215
+          }
+        },
+        "graphviz": {
+          "tests": 3,
+          "llmCallFailures": 0,
+          "renderSuccess": 3,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 3,
+          "latencyAvgMs": 2328,
+          "latencyP95Ms": 3591,
+          "tokens": {
+            "prompt": 1655,
+            "output": 1029,
+            "thought": 0,
+            "total": 2684,
+            "avgPromptPerCall": 552,
+            "avgTotalPerCall": 895
+          }
+        },
+        "mermaid": {
+          "tests": 8,
+          "llmCallFailures": 0,
+          "renderSuccess": 7,
+          "renderSuccessRate": 0.875,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 8,
+          "latencyAvgMs": 2692,
+          "latencyP95Ms": 8109,
+          "tokens": {
+            "prompt": 7667,
+            "output": 1107,
+            "thought": 0,
+            "total": 8774,
+            "avgPromptPerCall": 958,
+            "avgTotalPerCall": 1097
+          }
+        },
+        "nomnoml": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 1,
+          "renderSuccessRate": 0.5,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 4928,
+          "latencyP95Ms": 7564,
+          "tokens": {
+            "prompt": 1234,
+            "output": 306,
+            "thought": 0,
+            "total": 1540,
+            "avgPromptPerCall": 617,
+            "avgTotalPerCall": 770
+          }
+        },
+        "plantuml": {
+          "tests": 5,
+          "llmCallFailures": 0,
+          "renderSuccess": 4,
+          "renderSuccessRate": 0.8,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 5,
+          "latencyAvgMs": 3710,
+          "latencyP95Ms": 6537,
+          "tokens": {
+            "prompt": 6545,
+            "output": 1416,
+            "thought": 0,
+            "total": 7961,
+            "avgPromptPerCall": 1309,
+            "avgTotalPerCall": 1592
+          }
+        },
+        "seqdiag": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 0.917,
+          "fullCoverageCount": 1,
+          "latencyAvgMs": 5782,
+          "latencyP95Ms": 7871,
+          "tokens": {
+            "prompt": 1325,
+            "output": 413,
+            "thought": 0,
+            "total": 1738,
+            "avgPromptPerCall": 663,
+            "avgTotalPerCall": 869
+          }
+        },
+        "structurizr": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 3912,
+          "latencyP95Ms": 5722,
+          "tokens": {
+            "prompt": 5168,
+            "output": 847,
+            "thought": 0,
+            "total": 6015,
+            "avgPromptPerCall": 2584,
+            "avgTotalPerCall": 3008
+          }
+        }
+      },
+      "perCategory": {
+        "architecture": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 2636,
+          "latencyP95Ms": 5722,
+          "tokens": {
+            "prompt": 9232,
+            "output": 2492,
+            "thought": 0,
+            "total": 11724,
+            "avgPromptPerCall": 1539,
+            "avgTotalPerCall": 1954
+          }
+        },
+        "er": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 4580,
+          "latencyP95Ms": 8109,
+          "tokens": {
+            "prompt": 6733,
+            "output": 1253,
+            "thought": 0,
+            "total": 7986,
+            "avgPromptPerCall": 1122,
+            "avgTotalPerCall": 1331
+          }
+        },
+        "flowchart": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 2537,
+          "latencyP95Ms": 3976,
+          "tokens": {
+            "prompt": 4718,
+            "output": 1323,
+            "thought": 0,
+            "total": 6041,
+            "avgPromptPerCall": 786,
+            "avgTotalPerCall": 1007
+          }
+        },
+        "sequence": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 4,
+          "renderSuccessRate": 0.667,
+          "avgElementCoverage": 0.972,
+          "fullCoverageCount": 5,
+          "latencyAvgMs": 3375,
+          "latencyP95Ms": 7871,
+          "tokens": {
+            "prompt": 5865,
+            "output": 1209,
+            "thought": 0,
+            "total": 7074,
+            "avgPromptPerCall": 978,
+            "avgTotalPerCall": 1179
+          }
+        },
+        "uml": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 5,
+          "renderSuccessRate": 0.833,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 3244,
+          "latencyP95Ms": 7564,
+          "tokens": {
+            "prompt": 5757,
+            "output": 1071,
+            "thought": 0,
+            "total": 6828,
+            "avgPromptPerCall": 960,
+            "avgTotalPerCall": 1138
+          }
+        }
+      }
+    },
+    "rag_on": {
+      "overall": {
+        "tests": 30,
+        "llmCallFailures": 0,
+        "renderSuccess": 30,
+        "renderSuccessRate": 1,
+        "avgElementCoverage": 0.994,
+        "fullCoverageCount": 29,
+        "latencyAvgMs": 2053,
+        "latencyP95Ms": 3518,
+        "tokens": {
+          "prompt": 45774,
+          "output": 7303,
+          "thought": 0,
+          "total": 53077,
+          "avgPromptPerCall": 1526,
+          "avgTotalPerCall": 1769
+        }
+      },
+      "perEngine": {
+        "blockdiag": {
+          "tests": 1,
+          "llmCallFailures": 0,
+          "renderSuccess": 1,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 1,
+          "latencyAvgMs": 2002,
+          "latencyP95Ms": 2002,
+          "tokens": {
+            "prompt": 766,
+            "output": 208,
+            "thought": 0,
+            "total": 974,
+            "avgPromptPerCall": 766,
+            "avgTotalPerCall": 974
+          }
+        },
+        "c4plantuml": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 2269,
+          "latencyP95Ms": 2346,
+          "tokens": {
+            "prompt": 3249,
+            "output": 623,
+            "thought": 0,
+            "total": 3872,
+            "avgPromptPerCall": 1625,
+            "avgTotalPerCall": 1936
+          }
+        },
+        "d2": {
+          "tests": 3,
+          "llmCallFailures": 0,
+          "renderSuccess": 3,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 3,
+          "latencyAvgMs": 2632,
+          "latencyP95Ms": 3421,
+          "tokens": {
+            "prompt": 5132,
+            "output": 1332,
+            "thought": 0,
+            "total": 6464,
+            "avgPromptPerCall": 1711,
+            "avgTotalPerCall": 2155
+          }
+        },
+        "erd": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 1277,
+          "latencyP95Ms": 1310,
+          "tokens": {
+            "prompt": 2792,
+            "output": 211,
+            "thought": 0,
+            "total": 3003,
+            "avgPromptPerCall": 1396,
+            "avgTotalPerCall": 1502
+          }
+        },
+        "graphviz": {
+          "tests": 3,
+          "llmCallFailures": 0,
+          "renderSuccess": 3,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 3,
+          "latencyAvgMs": 1981,
+          "latencyP95Ms": 2439,
+          "tokens": {
+            "prompt": 2894,
+            "output": 977,
+            "thought": 0,
+            "total": 3871,
+            "avgPromptPerCall": 965,
+            "avgTotalPerCall": 1290
+          }
+        },
+        "mermaid": {
+          "tests": 8,
+          "llmCallFailures": 0,
+          "renderSuccess": 8,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 8,
+          "latencyAvgMs": 1635,
+          "latencyP95Ms": 2066,
+          "tokens": {
+            "prompt": 12107,
+            "output": 1229,
+            "thought": 0,
+            "total": 13336,
+            "avgPromptPerCall": 1513,
+            "avgTotalPerCall": 1667
+          }
+        },
+        "nomnoml": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 2526,
+          "latencyP95Ms": 3518,
+          "tokens": {
+            "prompt": 1885,
+            "output": 356,
+            "thought": 0,
+            "total": 2241,
+            "avgPromptPerCall": 943,
+            "avgTotalPerCall": 1121
+          }
+        },
+        "plantuml": {
+          "tests": 5,
+          "llmCallFailures": 0,
+          "renderSuccess": 5,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 5,
+          "latencyAvgMs": 1724,
+          "latencyP95Ms": 2172,
+          "tokens": {
+            "prompt": 8840,
+            "output": 1148,
+            "thought": 0,
+            "total": 9988,
+            "avgPromptPerCall": 1768,
+            "avgTotalPerCall": 1998
+          }
+        },
+        "seqdiag": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 0.917,
+          "fullCoverageCount": 1,
+          "latencyAvgMs": 2798,
+          "latencyP95Ms": 4390,
+          "tokens": {
+            "prompt": 2017,
+            "output": 426,
+            "thought": 0,
+            "total": 2443,
+            "avgPromptPerCall": 1009,
+            "avgTotalPerCall": 1222
+          }
+        },
+        "structurizr": {
+          "tests": 2,
+          "llmCallFailures": 0,
+          "renderSuccess": 2,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 2,
+          "latencyAvgMs": 3158,
+          "latencyP95Ms": 3477,
+          "tokens": {
+            "prompt": 6092,
+            "output": 793,
+            "thought": 0,
+            "total": 6885,
+            "avgPromptPerCall": 3046,
+            "avgTotalPerCall": 3443
+          }
+        }
+      },
+      "perCategory": {
+        "architecture": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 2786,
+          "latencyP95Ms": 3477,
+          "tokens": {
+            "prompt": 12032,
+            "output": 2304,
+            "thought": 0,
+            "total": 14336,
+            "avgPromptPerCall": 2005,
+            "avgTotalPerCall": 2389
+          }
+        },
+        "er": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 1656,
+          "latencyP95Ms": 2172,
+          "tokens": {
+            "prompt": 9381,
+            "output": 1413,
+            "thought": 0,
+            "total": 10794,
+            "avgPromptPerCall": 1564,
+            "avgTotalPerCall": 1799
+          }
+        },
+        "flowchart": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 1918,
+          "latencyP95Ms": 2438,
+          "tokens": {
+            "prompt": 7394,
+            "output": 1549,
+            "thought": 0,
+            "total": 8943,
+            "avgPromptPerCall": 1232,
+            "avgTotalPerCall": 1491
+          }
+        },
+        "sequence": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 0.972,
+          "fullCoverageCount": 5,
+          "latencyAvgMs": 1996,
+          "latencyP95Ms": 4390,
+          "tokens": {
+            "prompt": 8594,
+            "output": 1012,
+            "thought": 0,
+            "total": 9606,
+            "avgPromptPerCall": 1432,
+            "avgTotalPerCall": 1601
+          }
+        },
+        "uml": {
+          "tests": 6,
+          "llmCallFailures": 0,
+          "renderSuccess": 6,
+          "renderSuccessRate": 1,
+          "avgElementCoverage": 1,
+          "fullCoverageCount": 6,
+          "latencyAvgMs": 1911,
+          "latencyP95Ms": 3518,
+          "tokens": {
+            "prompt": 8373,
+            "output": 1025,
+            "thought": 0,
+            "total": 9398,
+            "avgPromptPerCall": 1396,
+            "avgTotalPerCall": 1566
+          }
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "mode": "rag_off",
+      "id": "er-01",
+      "category": "er",
+      "engine": "erd",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:49:55.619Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "book",
+        "author",
+        "member",
+        "loan"
+      ],
+      "missing": [],
+      "latencyMs": 3871,
+      "llmLatencyMs": 3871,
+      "usage": {
+        "promptTokens": 1109,
+        "outputTokens": 108,
+        "thoughtTokens": 0,
+        "totalTokens": 1217
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 245
+    },
+    {
+      "mode": "rag_off",
+      "id": "er-02",
+      "category": "er",
+      "engine": "erd",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:00.914Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "student",
+        "course",
+        "professor",
+        "enrollment",
+        "student_id",
+        "course_id"
+      ],
+      "missing": [],
+      "latencyMs": 2064,
+      "llmLatencyMs": 2064,
+      "usage": {
+        "promptTokens": 1103,
+        "outputTokens": 109,
+        "thoughtTokens": 0,
+        "totalTokens": 1212
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 317
+    },
+    {
+      "mode": "rag_off",
+      "id": "er-03",
+      "category": "er",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:03.766Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "order",
+        "order_item",
+        "product",
+        "payment"
+      ],
+      "missing": [],
+      "latencyMs": 8109,
+      "llmLatencyMs": 8109,
+      "usage": {
+        "promptTokens": 966,
+        "outputTokens": 219,
+        "thoughtTokens": 0,
+        "totalTokens": 1185
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 800
+    },
+    {
+      "mode": "rag_off",
+      "id": "er-04",
+      "category": "er",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:14.887Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "patient",
+        "doctor",
+        "appointment",
+        "prescription"
+      ],
+      "missing": [],
+      "latencyMs": 2070,
+      "llmLatencyMs": 2070,
+      "usage": {
+        "promptTokens": 963,
+        "outputTokens": 198,
+        "thoughtTokens": 0,
+        "totalTokens": 1161
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 756
+    },
+    {
+      "mode": "rag_off",
+      "id": "er-05",
+      "category": "er",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:18.567Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "users",
+        "posts",
+        "comments",
+        "tags",
+        "post_tags"
+      ],
+      "missing": [],
+      "latencyMs": 4827,
+      "llmLatencyMs": 4827,
+      "usage": {
+        "promptTokens": 1283,
+        "outputTokens": 296,
+        "thoughtTokens": 0,
+        "totalTokens": 1579
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 643
+    },
+    {
+      "mode": "rag_off",
+      "id": "er-06",
+      "category": "er",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:25.054Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "guest",
+        "room",
+        "reservation",
+        "invoice"
+      ],
+      "missing": [],
+      "latencyMs": 6537,
+      "llmLatencyMs": 6537,
+      "usage": {
+        "promptTokens": 1309,
+        "outputTokens": 323,
+        "thoughtTokens": 0,
+        "totalTokens": 1632
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1026
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-01",
+      "category": "flowchart",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:33.192Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "reset",
+        "email",
+        "token",
+        "valid",
+        "new password",
+        "error"
+      ],
+      "missing": [],
+      "latencyMs": 3747,
+      "llmLatencyMs": 3747,
+      "usage": {
+        "promptTokens": 950,
+        "outputTokens": 107,
+        "thoughtTokens": 0,
+        "totalTokens": 1057
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 322
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-02",
+      "category": "flowchart",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:38.248Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "card",
+        "pin",
+        "amount",
+        "balance",
+        "dispense",
+        "receipt"
+      ],
+      "missing": [],
+      "latencyMs": 1323,
+      "llmLatencyMs": 1323,
+      "usage": {
+        "promptTokens": 961,
+        "outputTokens": 115,
+        "thoughtTokens": 0,
+        "totalTokens": 1076
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 269
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-03",
+      "category": "flowchart",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:41.613Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "receive",
+        "inventory",
+        "stock",
+        "pack",
+        "ship",
+        "backorder",
+        "notify"
+      ],
+      "missing": [],
+      "latencyMs": 3591,
+      "llmLatencyMs": 3591,
+      "usage": {
+        "promptTokens": 547,
+        "outputTokens": 236,
+        "thoughtTokens": 0,
+        "totalTokens": 783
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 784
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-04",
+      "category": "flowchart",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:45.761Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "commit",
+        "build",
+        "unit test",
+        "staging",
+        "approval",
+        "production",
+        "notify"
+      ],
+      "missing": [],
+      "latencyMs": 1357,
+      "llmLatencyMs": 1357,
+      "usage": {
+        "promptTokens": 551,
+        "outputTokens": 274,
+        "thoughtTokens": 0,
+        "totalTokens": 825
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1004
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-05",
+      "category": "flowchart",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:47.519Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "application",
+        "credit check",
+        "700",
+        "approve",
+        "manual review",
+        "reject"
+      ],
+      "missing": [],
+      "latencyMs": 3976,
+      "llmLatencyMs": 3976,
+      "usage": {
+        "promptTokens": 1279,
+        "outputTokens": 395,
+        "thoughtTokens": 0,
+        "totalTokens": 1674
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 966
+    },
+    {
+      "mode": "rag_off",
+      "id": "fc-06",
+      "category": "flowchart",
+      "engine": "blockdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:52.245Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "ticket",
+        "classify",
+        "urgent",
+        "escalate",
+        "assign",
+        "resolve",
+        "close"
+      ],
+      "missing": [],
+      "latencyMs": 1227,
+      "llmLatencyMs": 1227,
+      "usage": {
+        "promptTokens": 430,
+        "outputTokens": 196,
+        "thoughtTokens": 0,
+        "totalTokens": 626
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 649
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-01",
+      "category": "sequence",
+      "engine": "seqdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:50:54.552Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 0.8333333333333334,
+      "matched": [
+        "user",
+        "browser",
+        "auth server",
+        "resource server",
+        "access token"
+      ],
+      "missing": [
+        "authorization code"
+      ],
+      "latencyMs": 7871,
+      "llmLatencyMs": 7871,
+      "usage": {
+        "promptTokens": 664,
+        "outputTokens": 265,
+        "thoughtTokens": 0,
+        "totalTokens": 929
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1024
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-02",
+      "category": "sequence",
+      "engine": "seqdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:06.666Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "shop",
+        "payment gateway",
+        "bank",
+        "charge",
+        "receipt"
+      ],
+      "missing": [],
+      "latencyMs": 3692,
+      "llmLatencyMs": 3692,
+      "usage": {
+        "promptTokens": 661,
+        "outputTokens": 148,
+        "thoughtTokens": 0,
+        "totalTokens": 809
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 535
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-03",
+      "category": "sequence",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:11.198Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "rider",
+        "app",
+        "matching service",
+        "driver",
+        "accept",
+        "eta"
+      ],
+      "missing": [],
+      "latencyMs": 1834,
+      "llmLatencyMs": 1834,
+      "usage": {
+        "promptTokens": 1307,
+        "outputTokens": 216,
+        "thoughtTokens": 0,
+        "totalTokens": 1523
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 909
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-04",
+      "category": "sequence",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:13.504Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": false,
+      "renderError": "Kroki Error #400: Error 400: Syntax Error? (Assumed diagram type: sequence) (line: 30)",
+      "coverage": 1,
+      "matched": [
+        "user",
+        "api",
+        "storage",
+        "scanner",
+        "infected",
+        "clean",
+        "delete"
+      ],
+      "missing": [],
+      "latencyMs": 3044,
+      "llmLatencyMs": 3044,
+      "usage": {
+        "promptTokens": 1318,
+        "outputTokens": 330,
+        "thoughtTokens": 0,
+        "totalTokens": 1648
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1265
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-05",
+      "category": "sequence",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:17.014Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "sender",
+        "chat server",
+        "message queue",
+        "recipient",
+        "read receipt"
+      ],
+      "missing": [],
+      "latencyMs": 1533,
+      "llmLatencyMs": 1533,
+      "usage": {
+        "promptTokens": 955,
+        "outputTokens": 83,
+        "thoughtTokens": 0,
+        "totalTokens": 1038
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 338
+    },
+    {
+      "mode": "rag_off",
+      "id": "sq-06",
+      "category": "sequence",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:20.199Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": false,
+      "renderError": "Kroki Error #400: Error 400: SyntaxError: Parse error on line 10:\n...Credentials    Auth--is Valid?-->Auth: \n----------------------^\nExpecting 'NEWLINE', ',', '()', 'SOLID_OPEN_ARROW', 'DOTTED_OPEN_ARROW', 'SOLID_ARROW', 'SOLID_ARROW_TOP', 'SOLID_ARROW_BOTTOM', 'STICK_ARROW_TOP', 'STICK_ARROW_BOTTOM', 'SOLID_ARROW_TOP_DOTTED', 'SOLID_ARROW_BOTTOM_DOTTED', 'STICK_ARROW_TOP_DOTTED', 'STICK_ARROW_BOT",
+      "coverage": 1,
+      "matched": [
+        "user",
+        "web app",
+        "auth service",
+        "sms provider",
+        "otp",
+        "session"
+      ],
+      "missing": [],
+      "latencyMs": 2273,
+      "llmLatencyMs": 2273,
+      "usage": {
+        "promptTokens": 960,
+        "outputTokens": 167,
+        "thoughtTokens": 0,
+        "totalTokens": 1127
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 650
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-01",
+      "category": "uml",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:23.567Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "shape",
+        "circle",
+        "rectangle",
+        "triangle",
+        "drawing",
+        "area"
+      ],
+      "missing": [],
+      "latencyMs": 2864,
+      "llmLatencyMs": 2864,
+      "usage": {
+        "promptTokens": 1300,
+        "outputTokens": 330,
+        "thoughtTokens": 0,
+        "totalTokens": 1630
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1103
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-02",
+      "category": "uml",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:27.188Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "created",
+        "paid",
+        "shipped",
+        "delivered",
+        "cancelled"
+      ],
+      "missing": [],
+      "latencyMs": 4270,
+      "llmLatencyMs": 4270,
+      "usage": {
+        "promptTokens": 1311,
+        "outputTokens": 217,
+        "thoughtTokens": 0,
+        "totalTokens": 1528
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 814
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-03",
+      "category": "uml",
+      "engine": "nomnoml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:33.354Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": false,
+      "renderError": "Kroki Error #400: Error 400: build/app.cjs:2390\n          throw new ParseError(expected, actual, line, index - lineStartIndex);\n          ^\n\nParseError: Parse error at line 12 column 9, expected \"label\" but got \"<\"\n    at error (build/app.cjs:2390:17)\n    at parseAssociation (build/app.cjs:2259:15)\n    at parseNodesAndAssocs (build/app.cjs:2233:47)\n    at parsePart (build/app.cjs:2207:33)\n    at l",
+      "coverage": 1,
+      "matched": [
+        "library",
+        "book",
+        "member",
+        "librarian",
+        "person",
+        "borrow"
+      ],
+      "missing": [],
+      "latencyMs": 7564,
+      "llmLatencyMs": 7564,
+      "usage": {
+        "promptTokens": 617,
+        "outputTokens": 176,
+        "thoughtTokens": 0,
+        "totalTokens": 793
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 429
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-04",
+      "category": "uml",
+      "engine": "nomnoml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:44.889Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "paymentmethod",
+        "creditcardpayment",
+        "paypalpayment",
+        "order",
+        "pay"
+      ],
+      "missing": [],
+      "latencyMs": 2291,
+      "llmLatencyMs": 2291,
+      "usage": {
+        "promptTokens": 617,
+        "outputTokens": 130,
+        "thoughtTokens": 0,
+        "totalTokens": 747
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 333
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-05",
+      "category": "uml",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:47.691Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "account",
+        "savingsaccount",
+        "checkingaccount",
+        "customer",
+        "deposit",
+        "withdraw",
+        "balance"
+      ],
+      "missing": [],
+      "latencyMs": 1320,
+      "llmLatencyMs": 1320,
+      "usage": {
+        "promptTokens": 947,
+        "outputTokens": 133,
+        "thoughtTokens": 0,
+        "totalTokens": 1080
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 445
+    },
+    {
+      "mode": "rag_off",
+      "id": "uml-06",
+      "category": "uml",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:50.501Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "stopped",
+        "playing",
+        "paused",
+        "buffering"
+      ],
+      "missing": [],
+      "latencyMs": 1157,
+      "llmLatencyMs": 1157,
+      "usage": {
+        "promptTokens": 965,
+        "outputTokens": 85,
+        "thoughtTokens": 0,
+        "totalTokens": 1050
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 323
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-01",
+      "category": "architecture",
+      "engine": "c4plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:55.080Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "mobile app",
+        "api gateway",
+        "accounts service",
+        "database",
+        "email"
+      ],
+      "missing": [],
+      "latencyMs": 1967,
+      "llmLatencyMs": 1967,
+      "usage": {
+        "promptTokens": 1119,
+        "outputTokens": 349,
+        "thoughtTokens": 0,
+        "totalTokens": 1468
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1336
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-02",
+      "category": "architecture",
+      "engine": "c4plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:51:58.211Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "student",
+        "instructor",
+        "e-learning",
+        "payment",
+        "video"
+      ],
+      "missing": [],
+      "latencyMs": 1693,
+      "llmLatencyMs": 1693,
+      "usage": {
+        "promptTokens": 1104,
+        "outputTokens": 276,
+        "thoughtTokens": 0,
+        "totalTokens": 1380
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1042
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-03",
+      "category": "architecture",
+      "engine": "structurizr",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:01.075Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "courier",
+        "web app",
+        "api",
+        "orders database",
+        "maps"
+      ],
+      "missing": [],
+      "latencyMs": 2102,
+      "llmLatencyMs": 2102,
+      "usage": {
+        "promptTokens": 2583,
+        "outputTokens": 381,
+        "thoughtTokens": 0,
+        "totalTokens": 2964
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1862
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-04",
+      "category": "architecture",
+      "engine": "structurizr",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:03.680Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "device",
+        "ingestion service",
+        "stream processor",
+        "time series",
+        "dashboard",
+        "operator"
+      ],
+      "missing": [],
+      "latencyMs": 5722,
+      "llmLatencyMs": 5722,
+      "usage": {
+        "promptTokens": 2585,
+        "outputTokens": 466,
+        "thoughtTokens": 0,
+        "totalTokens": 3051
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 2062
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-05",
+      "category": "architecture",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:11.788Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "api gateway",
+        "auth service",
+        "user service",
+        "order service",
+        "kafka",
+        "postgres",
+        "redis"
+      ],
+      "missing": [],
+      "latencyMs": 2292,
+      "llmLatencyMs": 2292,
+      "usage": {
+        "promptTokens": 1284,
+        "outputTokens": 501,
+        "thoughtTokens": 0,
+        "totalTokens": 1785
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1249
+    },
+    {
+      "mode": "rag_off",
+      "id": "arch-06",
+      "category": "architecture",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:14.841Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "user",
+        "load balancer",
+        "web server",
+        "app server",
+        "cache",
+        "primary",
+        "replica"
+      ],
+      "missing": [],
+      "latencyMs": 2037,
+      "llmLatencyMs": 2037,
+      "usage": {
+        "promptTokens": 557,
+        "outputTokens": 519,
+        "thoughtTokens": 0,
+        "totalTokens": 1076
+      },
+      "rag": {
+        "used": false,
+        "chunks": [],
+        "error": null
+      },
+      "codeChars": 1630
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-01",
+      "category": "er",
+      "engine": "erd",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:18.007Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "book",
+        "author",
+        "member",
+        "loan"
+      ],
+      "missing": [],
+      "latencyMs": 1310,
+      "llmLatencyMs": 1307,
+      "usage": {
+        "promptTokens": 1355,
+        "outputTokens": 108,
+        "thoughtTokens": 0,
+        "totalTokens": 1463
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "erd#1",
+          "erd#3",
+          "erd#5"
+        ],
+        "error": null
+      },
+      "codeChars": 248
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-02",
+      "category": "er",
+      "engine": "erd",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:19.705Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "student",
+        "course",
+        "professor",
+        "enrollment",
+        "student_id",
+        "course_id"
+      ],
+      "missing": [],
+      "latencyMs": 1244,
+      "llmLatencyMs": 1234,
+      "usage": {
+        "promptTokens": 1437,
+        "outputTokens": 103,
+        "thoughtTokens": 0,
+        "totalTokens": 1540
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "erd#2",
+          "erd#1",
+          "erd#4"
+        ],
+        "error": null
+      },
+      "codeChars": 291
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-03",
+      "category": "er",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:21.399Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "order",
+        "order_item",
+        "product",
+        "payment"
+      ],
+      "missing": [],
+      "latencyMs": 1461,
+      "llmLatencyMs": 1461,
+      "usage": {
+        "promptTokens": 1570,
+        "outputTokens": 205,
+        "thoughtTokens": 0,
+        "totalTokens": 1775
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#5",
+          "mermaid#4",
+          "mermaid#2"
+        ],
+        "error": null
+      },
+      "codeChars": 633
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-04",
+      "category": "er",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:25.137Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "patient",
+        "doctor",
+        "appointment",
+        "prescription"
+      ],
+      "missing": [],
+      "latencyMs": 1711,
+      "llmLatencyMs": 1710,
+      "usage": {
+        "promptTokens": 1485,
+        "outputTokens": 186,
+        "thoughtTokens": 0,
+        "totalTokens": 1671
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#3",
+          "mermaid#5",
+          "mermaid#1"
+        ],
+        "error": null
+      },
+      "codeChars": 606
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-05",
+      "category": "er",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:28.403Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "users",
+        "posts",
+        "comments",
+        "tags",
+        "post_tags"
+      ],
+      "missing": [],
+      "latencyMs": 2036,
+      "llmLatencyMs": 2036,
+      "usage": {
+        "promptTokens": 1738,
+        "outputTokens": 489,
+        "thoughtTokens": 0,
+        "totalTokens": 2227
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "d2#4",
+          "d2#2",
+          "d2#3"
+        ],
+        "error": null
+      },
+      "codeChars": 1281
+    },
+    {
+      "mode": "rag_on",
+      "id": "er-06",
+      "category": "er",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:31.164Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "guest",
+        "room",
+        "reservation",
+        "invoice"
+      ],
+      "missing": [],
+      "latencyMs": 2172,
+      "llmLatencyMs": 2172,
+      "usage": {
+        "promptTokens": 1796,
+        "outputTokens": 322,
+        "thoughtTokens": 0,
+        "totalTokens": 2118
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "plantuml#5",
+          "plantuml#6",
+          "plantuml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1027
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-01",
+      "category": "flowchart",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:33.774Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "reset",
+        "email",
+        "token",
+        "valid",
+        "new password",
+        "error"
+      ],
+      "missing": [],
+      "latencyMs": 2066,
+      "llmLatencyMs": 2065,
+      "usage": {
+        "promptTokens": 1586,
+        "outputTokens": 241,
+        "thoughtTokens": 0,
+        "totalTokens": 1827
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#3",
+          "mermaid#2",
+          "mermaid#5"
+        ],
+        "error": null
+      },
+      "codeChars": 861
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-02",
+      "category": "flowchart",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:37.658Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "card",
+        "pin",
+        "amount",
+        "balance",
+        "dispense",
+        "receipt"
+      ],
+      "missing": [],
+      "latencyMs": 1500,
+      "llmLatencyMs": 1500,
+      "usage": {
+        "promptTokens": 1445,
+        "outputTokens": 168,
+        "thoughtTokens": 0,
+        "totalTokens": 1613
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#3",
+          "mermaid#2",
+          "mermaid#1"
+        ],
+        "error": null
+      },
+      "codeChars": 549
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-03",
+      "category": "flowchart",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:40.936Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "receive",
+        "inventory",
+        "stock",
+        "pack",
+        "ship",
+        "backorder",
+        "notify"
+      ],
+      "missing": [],
+      "latencyMs": 1667,
+      "llmLatencyMs": 1667,
+      "usage": {
+        "promptTokens": 909,
+        "outputTokens": 226,
+        "thoughtTokens": 0,
+        "totalTokens": 1135
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "graphviz#4",
+          "graphviz#2",
+          "graphviz#5"
+        ],
+        "error": null
+      },
+      "codeChars": 783
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-04",
+      "category": "flowchart",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:43.005Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "commit",
+        "build",
+        "unit test",
+        "staging",
+        "approval",
+        "production",
+        "notify"
+      ],
+      "missing": [],
+      "latencyMs": 1837,
+      "llmLatencyMs": 1837,
+      "usage": {
+        "promptTokens": 1033,
+        "outputTokens": 314,
+        "thoughtTokens": 0,
+        "totalTokens": 1347
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "graphviz#2",
+          "graphviz#3",
+          "graphviz#4"
+        ],
+        "error": null
+      },
+      "codeChars": 1144
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-05",
+      "category": "flowchart",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:45.220Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "application",
+        "credit check",
+        "700",
+        "approve",
+        "manual review",
+        "reject"
+      ],
+      "missing": [],
+      "latencyMs": 2438,
+      "llmLatencyMs": 2438,
+      "usage": {
+        "promptTokens": 1655,
+        "outputTokens": 392,
+        "thoughtTokens": 0,
+        "totalTokens": 2047
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "d2#1",
+          "d2#5",
+          "d2#3"
+        ],
+        "error": null
+      },
+      "codeChars": 949
+    },
+    {
+      "mode": "rag_on",
+      "id": "fc-06",
+      "category": "flowchart",
+      "engine": "blockdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:48.449Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "ticket",
+        "classify",
+        "urgent",
+        "escalate",
+        "assign",
+        "resolve",
+        "close"
+      ],
+      "missing": [],
+      "latencyMs": 2002,
+      "llmLatencyMs": 2002,
+      "usage": {
+        "promptTokens": 766,
+        "outputTokens": 208,
+        "thoughtTokens": 0,
+        "totalTokens": 974
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "blockdiag#5",
+          "blockdiag#4",
+          "blockdiag#1"
+        ],
+        "error": null
+      },
+      "codeChars": 703
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-01",
+      "category": "sequence",
+      "engine": "seqdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:51.216Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 0.8333333333333334,
+      "matched": [
+        "user",
+        "browser",
+        "auth server",
+        "resource server",
+        "access token"
+      ],
+      "missing": [
+        "authorization code"
+      ],
+      "latencyMs": 4390,
+      "llmLatencyMs": 4389,
+      "usage": {
+        "promptTokens": 1010,
+        "outputTokens": 278,
+        "thoughtTokens": 0,
+        "totalTokens": 1288
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "seqdiag#4",
+          "seqdiag#1",
+          "seqdiag#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1025
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-02",
+      "category": "sequence",
+      "engine": "seqdiag",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:57.672Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "shop",
+        "payment gateway",
+        "bank",
+        "charge",
+        "receipt"
+      ],
+      "missing": [],
+      "latencyMs": 1206,
+      "llmLatencyMs": 1206,
+      "usage": {
+        "promptTokens": 1007,
+        "outputTokens": 148,
+        "thoughtTokens": 0,
+        "totalTokens": 1155
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "seqdiag#4",
+          "seqdiag#1",
+          "seqdiag#2"
+        ],
+        "error": null
+      },
+      "codeChars": 535
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-03",
+      "category": "sequence",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:52:59.738Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "rider",
+        "app",
+        "matching service",
+        "driver",
+        "accept",
+        "eta"
+      ],
+      "missing": [],
+      "latencyMs": 1455,
+      "llmLatencyMs": 1455,
+      "usage": {
+        "promptTokens": 1815,
+        "outputTokens": 141,
+        "thoughtTokens": 0,
+        "totalTokens": 1956
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "plantuml#3",
+          "plantuml#1",
+          "plantuml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 615
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-04",
+      "category": "sequence",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:01.657Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "user",
+        "api",
+        "storage",
+        "scanner",
+        "infected",
+        "clean",
+        "delete"
+      ],
+      "missing": [],
+      "latencyMs": 1668,
+      "llmLatencyMs": 1668,
+      "usage": {
+        "promptTokens": 1772,
+        "outputTokens": 235,
+        "thoughtTokens": 0,
+        "totalTokens": 2007
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "plantuml#4",
+          "plantuml#5",
+          "plantuml#6"
+        ],
+        "error": null
+      },
+      "codeChars": 982
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-05",
+      "category": "sequence",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:04.529Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "sender",
+        "chat server",
+        "message queue",
+        "recipient",
+        "read receipt"
+      ],
+      "missing": [],
+      "latencyMs": 1530,
+      "llmLatencyMs": 1530,
+      "usage": {
+        "promptTokens": 1494,
+        "outputTokens": 72,
+        "thoughtTokens": 0,
+        "totalTokens": 1566
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#2",
+          "mermaid#3",
+          "mermaid#6"
+        ],
+        "error": null
+      },
+      "codeChars": 276
+    },
+    {
+      "mode": "rag_on",
+      "id": "sq-06",
+      "category": "sequence",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:07.028Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "user",
+        "web app",
+        "auth service",
+        "sms provider",
+        "otp",
+        "session"
+      ],
+      "missing": [],
+      "latencyMs": 1725,
+      "llmLatencyMs": 1724,
+      "usage": {
+        "promptTokens": 1496,
+        "outputTokens": 138,
+        "thoughtTokens": 0,
+        "totalTokens": 1634
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#3",
+          "mermaid#2",
+          "mermaid#4"
+        ],
+        "error": null
+      },
+      "codeChars": 512
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-01",
+      "category": "uml",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:09.683Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "shape",
+        "circle",
+        "rectangle",
+        "triangle",
+        "drawing",
+        "area"
+      ],
+      "missing": [],
+      "latencyMs": 1435,
+      "llmLatencyMs": 1435,
+      "usage": {
+        "promptTokens": 1680,
+        "outputTokens": 271,
+        "thoughtTokens": 0,
+        "totalTokens": 1951
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "plantuml#3",
+          "plantuml#6",
+          "plantuml#1"
+        ],
+        "error": null
+      },
+      "codeChars": 902
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-02",
+      "category": "uml",
+      "engine": "plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:11.815Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "created",
+        "paid",
+        "shipped",
+        "delivered",
+        "cancelled"
+      ],
+      "missing": [],
+      "latencyMs": 1891,
+      "llmLatencyMs": 1891,
+      "usage": {
+        "promptTokens": 1777,
+        "outputTokens": 179,
+        "thoughtTokens": 0,
+        "totalTokens": 1956
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "plantuml#4",
+          "plantuml#1",
+          "plantuml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 689
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-03",
+      "category": "uml",
+      "engine": "nomnoml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:14.517Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "library",
+        "book",
+        "member",
+        "librarian",
+        "person",
+        "borrow"
+      ],
+      "missing": [],
+      "latencyMs": 3518,
+      "llmLatencyMs": 3518,
+      "usage": {
+        "promptTokens": 937,
+        "outputTokens": 179,
+        "thoughtTokens": 0,
+        "totalTokens": 1116
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "nomnoml#1",
+          "nomnoml#5",
+          "nomnoml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 481
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-04",
+      "category": "uml",
+      "engine": "nomnoml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:18.562Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "paymentmethod",
+        "creditcardpayment",
+        "paypalpayment",
+        "order",
+        "pay"
+      ],
+      "missing": [],
+      "latencyMs": 1534,
+      "llmLatencyMs": 1534,
+      "usage": {
+        "promptTokens": 948,
+        "outputTokens": 177,
+        "thoughtTokens": 0,
+        "totalTokens": 1125
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "nomnoml#2",
+          "nomnoml#5",
+          "nomnoml#3"
+        ],
+        "error": null
+      },
+      "codeChars": 451
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-05",
+      "category": "uml",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:20.934Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "account",
+        "savingsaccount",
+        "checkingaccount",
+        "customer",
+        "deposit",
+        "withdraw",
+        "balance"
+      ],
+      "missing": [],
+      "latencyMs": 1805,
+      "llmLatencyMs": 1805,
+      "usage": {
+        "promptTokens": 1521,
+        "outputTokens": 136,
+        "thoughtTokens": 0,
+        "totalTokens": 1657
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#4",
+          "mermaid#3",
+          "mermaid#5"
+        ],
+        "error": null
+      },
+      "codeChars": 474
+    },
+    {
+      "mode": "rag_on",
+      "id": "uml-06",
+      "category": "uml",
+      "engine": "mermaid",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:24.314Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "stopped",
+        "playing",
+        "paused",
+        "buffering"
+      ],
+      "missing": [],
+      "latencyMs": 1284,
+      "llmLatencyMs": 1284,
+      "usage": {
+        "promptTokens": 1510,
+        "outputTokens": 83,
+        "thoughtTokens": 0,
+        "totalTokens": 1593
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "mermaid#6",
+          "mermaid#5",
+          "mermaid#4"
+        ],
+        "error": null
+      },
+      "codeChars": 307
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-01",
+      "category": "architecture",
+      "engine": "c4plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:27.485Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "mobile app",
+        "api gateway",
+        "accounts service",
+        "database",
+        "email"
+      ],
+      "missing": [],
+      "latencyMs": 2191,
+      "llmLatencyMs": 2191,
+      "usage": {
+        "promptTokens": 1632,
+        "outputTokens": 357,
+        "thoughtTokens": 0,
+        "totalTokens": 1989
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "c4plantuml#4",
+          "c4plantuml#1",
+          "c4plantuml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1366
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-02",
+      "category": "architecture",
+      "engine": "c4plantuml",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:30.821Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "student",
+        "instructor",
+        "e-learning",
+        "payment",
+        "video"
+      ],
+      "missing": [],
+      "latencyMs": 2346,
+      "llmLatencyMs": 2346,
+      "usage": {
+        "promptTokens": 1617,
+        "outputTokens": 266,
+        "thoughtTokens": 0,
+        "totalTokens": 1883
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "c4plantuml#4",
+          "c4plantuml#1",
+          "c4plantuml#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1027
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-03",
+      "category": "architecture",
+      "engine": "structurizr",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:34.381Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "customer",
+        "courier",
+        "web app",
+        "api",
+        "orders database",
+        "maps"
+      ],
+      "missing": [],
+      "latencyMs": 3477,
+      "llmLatencyMs": 3477,
+      "usage": {
+        "promptTokens": 3033,
+        "outputTokens": 390,
+        "thoughtTokens": 0,
+        "totalTokens": 3423
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "structurizr#5",
+          "structurizr#2",
+          "structurizr#1"
+        ],
+        "error": null
+      },
+      "codeChars": 1585
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-04",
+      "category": "architecture",
+      "engine": "structurizr",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:38.383Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "device",
+        "ingestion service",
+        "stream processor",
+        "time series",
+        "dashboard",
+        "operator"
+      ],
+      "missing": [],
+      "latencyMs": 2839,
+      "llmLatencyMs": 2839,
+      "usage": {
+        "promptTokens": 3059,
+        "outputTokens": 403,
+        "thoughtTokens": 0,
+        "totalTokens": 3462
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "structurizr#5",
+          "structurizr#4",
+          "structurizr#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1731
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-05",
+      "category": "architecture",
+      "engine": "d2",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:41.717Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "api gateway",
+        "auth service",
+        "user service",
+        "order service",
+        "kafka",
+        "postgres",
+        "redis"
+      ],
+      "missing": [],
+      "latencyMs": 3421,
+      "llmLatencyMs": 3420,
+      "usage": {
+        "promptTokens": 1739,
+        "outputTokens": 451,
+        "thoughtTokens": 0,
+        "totalTokens": 2190
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "d2#3",
+          "d2#4",
+          "d2#2"
+        ],
+        "error": null
+      },
+      "codeChars": 1146
+    },
+    {
+      "mode": "rag_on",
+      "id": "arch-06",
+      "category": "architecture",
+      "engine": "graphviz",
+      "model": "gemini-3.5-flash-lite",
+      "startedAt": "2026-11-05T06:53:46.009Z",
+      "llmOk": true,
+      "error": null,
+      "renderSuccess": true,
+      "renderError": null,
+      "coverage": 1,
+      "matched": [
+        "user",
+        "load balancer",
+        "web server",
+        "app server",
+        "cache",
+        "primary",
+        "replica"
+      ],
+      "missing": [],
+      "latencyMs": 2439,
+      "llmLatencyMs": 2439,
+      "usage": {
+        "promptTokens": 952,
+        "outputTokens": 437,
+        "thoughtTokens": 0,
+        "totalTokens": 1389
+      },
+      "rag": {
+        "used": true,
+        "chunks": [
+          "graphviz#2",
+          "graphviz#3",
+          "graphviz#5"
+        ],
+        "error": null
+      },
+      "codeChars": 1515
+    }
+  ]
+}
